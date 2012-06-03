@@ -1,5 +1,4 @@
 #include <iostream>
-#include <inttypes.h>
 #include "Sort.h"
 
 using namespace algorithms;
