@@ -25,7 +25,7 @@ void Runner::Run(int (*cmp)(const void *, const void *),
 {    
     for (sorters_t::iterator it = sorters.begin(); it != sorters.end(); ++it) {
         void** arrPtr = (void **) make_array();
-        (*it)->sort(arrPtr, NUM_ELEMS);
+        (*it)->sort(arrPtr, NUM_ELEMS, cmp);
         
         bool sorted = true;
         for (int i=0, j=1; j<NUM_ELEMS; ++i, ++j) {

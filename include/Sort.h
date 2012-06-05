@@ -38,6 +38,21 @@ namespace algorithms {
     
     class MedianSort: public BaseSort
     {
+    private:
+        void doMedianSort(void **array,
+                        int (*cmp)(const void *, const void *),
+                        int left,
+                        int right);
+        int partition(void **array,
+                       int (*cmp)(const void *, const void *),
+                       int left,
+                       int right,
+                       int pivotIndex);
+        int selectKth(void **array,
+                       int (*cmp)(const void *, const void *),
+                       int k,
+                       int left,
+                       int right);
     public:
         const string getName() { return "MedianSort";}
         void sort(void **array, 
