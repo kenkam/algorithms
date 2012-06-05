@@ -39,19 +39,14 @@ void free_array(int ** arr)
     delete [] arr;
 }
 
-int cmp(const void *a, const void *b)
+int int_cmp(const void *a, const void *b)
 {
-    int x = *((int *) a);
-    int y = *((int *) b);
-
-    if (x < y) return -1;
-    if (x > y) return 1;
-    return 0;
+    return *((int *) a) > *((int *) b);
 }
 
 int main(int argc, const char * argv[])
 {
-    ISort *sorter = new InsertionSort;
+    ISort *sorter = new MedianSort;
     int** arrPtr = new int *[NUM_ELEMS];
     
     arrPtr = make_unordered_array();
@@ -61,7 +56,7 @@ int main(int argc, const char * argv[])
         cout << *arrPtr[i] << endl;
     }
     
-    sorter->sort((void **) arrPtr, NUM_ELEMS, &cmp);
+    sorter->sort((void **) arrPtr, NUM_ELEMS, &int_cmp);
     
     cout << "After sorting" << endl;
     for (int i=0; i<NUM_ELEMS; i++) {

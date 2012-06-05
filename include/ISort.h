@@ -9,6 +9,8 @@ namespace algorithms {
         virtual void sort(void **array, 
                           int n,
                           int (*cmp)(const void *, const void *)) = 0;
+        virtual void sort(void **array,
+                          int n) = 0;
     };
 }
 
