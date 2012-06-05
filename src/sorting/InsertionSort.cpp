@@ -2,6 +2,7 @@
 #include "Sort.h"
 
 using namespace algorithms;
+using namespace std;
 
 void InsertionSort::sort(void **array, 
                          int n,

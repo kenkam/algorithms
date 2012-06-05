@@ -3,6 +3,8 @@
 
 #include "ISort.h"
 
+using namespace std;
+
 namespace algorithms {
     class BaseSort: public ISort
     {
@@ -28,6 +30,7 @@ namespace algorithms {
     class InsertionSort: public BaseSort
     {
     public:
+        const string getName() { return "InsertionSort";}
         void sort(void **array, 
                   int n,
                   int (*cmp)(const void *, const void *));
@@ -36,6 +39,7 @@ namespace algorithms {
     class MedianSort: public BaseSort
     {
     public:
+        const string getName() { return "MedianSort";}
         void sort(void **array, 
                   int n,
                   int (*cmp)(const void *, const void *));

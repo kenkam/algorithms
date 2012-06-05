@@ -1,13 +1,11 @@
 #include <cstdlib>
 #include <iostream>
-#include "Sort.h"
-
-#define     NUM_ELEMS   100
+#include "Runner.h"
 
 using namespace algorithms;
 using namespace std;
 
-int ** make_unordered_array()
+void ** make_unordered_array()
 {
     int** arrPtr = new int *[NUM_ELEMS];
     
@@ -26,14 +24,14 @@ int ** make_unordered_array()
         arrPtr[i] = value;
     }
     
-    return arrPtr;
+    return (void **) arrPtr;
 }
 
-void free_array(int ** arr)
+void free_array(void ** arr)
 {
     for (int i=0; i<NUM_ELEMS; i++)
     {
-        delete arr[i];
+        delete (int *) arr[i];
     }
     
     delete [] arr;
@@ -46,24 +44,10 @@ int int_cmp(const void *a, const void *b)
 
 int main(int argc, const char * argv[])
 {
-    ISort *sorter = new InsertionSort;
-    int** arrPtr = new int *[NUM_ELEMS];
+    Runner *runner = new Runner;
+    runner->Run(&int_cmp, &make_unordered_array, &free_array);
     
-    arrPtr = make_unordered_array();
-        
-    cout << "Before sorting" << endl;
-    for (int i=0; i<NUM_ELEMS; i++) {
-        cout << *arrPtr[i] << endl;
-    }
-    
-    sorter->sort((void **) arrPtr, NUM_ELEMS, &int_cmp);
-    
-    cout << "After sorting" << endl;
-    for (int i=0; i<NUM_ELEMS; i++) {
-        cout << *arrPtr[i] << endl;
-    }
-    
-    free_array(arrPtr);
+    delete runner;
     return 0;
 }
 
