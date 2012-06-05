@@ -46,7 +46,7 @@ int int_cmp(const void *a, const void *b)
 
 int main(int argc, const char * argv[])
 {
-    ISort *sorter = new MedianSort;
+    ISort *sorter = new InsertionSort;
     int** arrPtr = new int *[NUM_ELEMS];
     
     arrPtr = make_unordered_array();
