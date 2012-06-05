@@ -8,7 +8,7 @@ It is very primitive at the moment and there are things such as testing and benc
 Implementation Notes
 --------------------
 
-Array of pointers was chosen in ``main.cpp`` for sorting algorithms instead of using standard library data structures to keep the algorithms themselves lightweight. Also, in the spirit of learning this served well as a reminder on how pointers worked.
+Array of pointers was chosen in ``main.cpp`` for sorting algorithms instead of using standard library data structures to keep the algorithms lightweight and to provide a reminder on how pointers work.
 
 Running
 -------
