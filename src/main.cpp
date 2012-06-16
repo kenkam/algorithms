@@ -45,7 +45,7 @@ int int_cmp(const void *a, const void *b)
 int main(int argc, const char * argv[])
 {
     Runner *runner = new Runner;
-    runner->Run(&int_cmp, &make_unordered_array, &free_array);
+    runner->run(&int_cmp, &make_unordered_array, &free_array);
     
     delete runner;
     return 0;

@@ -15,11 +15,13 @@ namespace algorithms {
     {
     private:
         vector<ISort*> sorters;
+        void printArray(void **array,
+                        int n);
         
     public:
         Runner();
         ~Runner();
-        void Run(int (*cmp)(const void *, const void *),
+        void run(int (*cmp)(const void *, const void *),
                  void** (*make_array)(),
                  void (*free_array)(void **));
     };

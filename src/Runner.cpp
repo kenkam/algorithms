@@ -10,6 +10,9 @@ Runner::Runner()
 {
     sorters.push_back(new InsertionSort);
     sorters.push_back(new MedianSort);
+    sorters.push_back(new QuickSort);
+    
+    srand(time(NULL));
 }
 
 Runner::~Runner()
@@ -19,7 +22,7 @@ Runner::~Runner()
     }
 }
 
-void Runner::Run(int (*cmp)(const void *, const void *),
+void Runner::run(int (*cmp)(const void *, const void *),
                  void** (*make_array)(),
                  void (*free_array)(void **))
 {    
@@ -42,8 +45,18 @@ void Runner::Run(int (*cmp)(const void *, const void *),
         else 
         {
             cout << "FAILED \t" + (*it)->getName() << endl;
+            printArray(arrPtr, NUM_ELEMS);
         }
         
         free_array(arrPtr);
+    }
+}
+
+void Runner::printArray(void **array, 
+                        int n)
+{
+    for (int i=0; i<n; i++)
+    {
+        cout << *((int*) array[i]) << endl;
     }
 }
