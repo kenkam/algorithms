@@ -16,21 +16,21 @@ void MedianSort::sort(void **array,
 {
     int left = 0;
     int right = n-1;
-    doMedianSort(array, cmp, left, right);
+    doMedianSort(array, left, right, cmp);
 }
 
 /// Recursive implementation of median sort
 void MedianSort::doMedianSort(void **array,
-                              int (*cmp)(const void *, const void *),
                               int left,
-                              int right)
+                              int right,
+                              int (*cmp)(const void *, const void *))
 {
     if (right <= left) return;
     int mid = (right-left+1) / 2;
-    selectKth(array, cmp, mid+1, left, right);
+    selectKth(array, mid+1, left, right, cmp);
     
-    doMedianSort(array, cmp, left, left+mid-1);
-    doMedianSort(array, cmp, left+mid+1, right);
+    doMedianSort(array, left, left+mid-1, cmp);
+    doMedianSort(array, left+mid+1, right, cmp);
 }
 
 

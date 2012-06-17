@@ -20,20 +20,20 @@ void QuickSort::sort(void **array,
 {
     int left = 0;
     int right = n-1;
-    doQuickSort(array, cmp, left, right);
+    doQuickSort(array, left, right, cmp);
 }
 
 /// Recursive implementation of QuickSort
 void QuickSort::doQuickSort(void **array,
-                            int (*cmp)(const void *, const void *),
                             int left,
-                            int right)
+                            int right,
+                            int (*cmp)(const void *, const void *))
 {
     if (right <= left) return;
 
     // pick a random pivot
     int pivot = rand() % (right-left) + left;
-    pivot = partition(array, cmp, left, right, pivot);
+    pivot = partition(array, left, right, pivot, cmp);
     
     if (pivot-1-left <= minSize)
     {
@@ -41,7 +41,7 @@ void QuickSort::doQuickSort(void **array,
     }
     else 
     {
-        doQuickSort(array, cmp, left, pivot-1);
+        doQuickSort(array, left, pivot-1, cmp);
     }
     
     if (right-pivot-1 <= minSize)
@@ -50,6 +50,6 @@ void QuickSort::doQuickSort(void **array,
     }
     else 
     {
-        doQuickSort(array, cmp, pivot+1, right);
+        doQuickSort(array, pivot+1, right, cmp);
     }
 }

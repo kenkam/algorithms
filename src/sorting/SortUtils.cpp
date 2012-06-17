@@ -6,11 +6,11 @@ namespace algorithms {
     /// than pivot is to the left of the it and elements larger than the pivot
     /// to the right of it, returning the correct location of the pivot within the
     /// array.
-    int partition(void **array, 
-                  int (*cmp)(const void *, const void *),
+    int partition(void **array,
                   int left,
                   int right,
-                  int pivotIndex)
+                  int pivotIndex,
+                  int (*cmp)(const void *, const void *))
     {
         // move pivot to the end of the array
         void *tmp = array[right];
@@ -39,13 +39,13 @@ namespace algorithms {
     /// such that smaller elements are placed before k and larger elements are 
     /// placed after.
     int selectKth(void **array, 
-                  int (*cmp)(const void *, const void *), 
                   int k, 
                   int left, 
-                  int right)
+                  int right,
+                  int (*cmp)(const void *, const void *))
     {
         int idx = right;
-        idx = partition(array, cmp, left, right, idx);
+        idx = partition(array, left, right, idx, cmp);
         
         // 3 cases: k is the median value
         if (k == idx+1-left) return idx;
@@ -53,10 +53,10 @@ namespace algorithms {
         // k is smaller than the pivot index
         if (k < idx+1-left)
         {
-            return selectKth(array, cmp, k, left, idx-1);
+            return selectKth(array, k, left, idx-1, cmp);
         } else 
         {
-            return selectKth(array, cmp, k - (idx-left+1), idx+1, right);
+            return selectKth(array, k-(idx-left+1), idx+1, right, cmp);
         }
     }
 }
