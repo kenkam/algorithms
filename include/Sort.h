@@ -72,6 +72,26 @@ namespace algorithms {
                   int (*cmp)(const void *, const void *));
     };
     
+    class HeapSort: public BaseSort
+    {
+    private:
+        void heapify(void **array,
+                     int index,
+                     int n,
+                     int (*cmp)(const void *, const void *));
+        void buildHeap(void **array,
+                       int n,
+                       int (*cmp)(const void *, const void *));
+    public:
+        const string getName() { return "HeapSort";}
+        static bool isHeap(void **array,
+                           int n,
+                           int (*cmp)(const void *, const void *));
+        void sort(void **array,
+                  int n,
+                  int (*cmp)(const void *, const void *));
+    };
+    
     /// In linear time, group the array around a pivot such that elements smaller 
     /// than pivot is to the left of the it and elements larger than the pivot
     /// to the right of it, returning the correct location of the pivot within the

@@ -11,6 +11,7 @@ Runner::Runner()
     sorters.push_back(new InsertionSort);
     sorters.push_back(new MedianSort);
     sorters.push_back(new QuickSort);
+    sorters.push_back(new HeapSort);
     
     srand(time(NULL));
 }
