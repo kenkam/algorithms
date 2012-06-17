@@ -1,5 +1,5 @@
 main: sorting
-	clang++ -Wall -I./include -o algorithms src/main.cpp *.o
+	clang++ -Wall -I./include -o algorithms src/main.cpp src/Runner.cpp *.o
 	rm *.o
 	
 sorting:

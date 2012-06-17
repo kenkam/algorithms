@@ -3,7 +3,6 @@
 #include "Runner.h"
 
 using namespace algorithms;
-using namespace std;
 
 void ** make_unordered_array()
 {
@@ -44,10 +43,9 @@ int int_cmp(const void *a, const void *b)
 
 int main(int argc, const char * argv[])
 {
-    Runner *runner = new Runner;
-    runner->run(&int_cmp, &make_unordered_array, &free_array);
+    Runner runner;
+    runner.run(&int_cmp, &make_unordered_array, &free_array);
     
-    delete runner;
     return 0;
 }
 

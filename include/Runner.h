@@ -6,8 +6,6 @@
 
 #define NUM_ELEMS   100
 
-using namespace std;
-
 namespace algorithms {
     typedef vector<ISort*> sorters_t; 
     
